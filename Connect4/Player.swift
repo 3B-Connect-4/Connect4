@@ -15,5 +15,12 @@ class Player {
         case YELLOW
         case NONE
     }
+    var color: PlayerID
+    var score: Int
+    
+    init(color: PlayerID) {
+        self.color = color
+        self.score = 0
+    }
     
 }
