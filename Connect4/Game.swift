@@ -10,15 +10,9 @@ import Foundation
 
 class Game {
     
-    enum PlayerID {
-        case RED
-        case YELLOW
-        case NONE
-    }
-    
-    var tokenGrid: [[PlayerID]]
+    var tokenGrid: [[Player.PlayerID]]
     
     init() {
-        tokenGrid = Array(repeating: Array(repeating: PlayerID.NONE, count: 6), count: 7)
+        tokenGrid = Array(repeating: Array(repeating: Player.PlayerID.NONE, count: 6), count: 7)
     }
 }

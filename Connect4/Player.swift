@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class Player {    
+    
+    enum PlayerID {
+        case RED
+        case YELLOW
+        case NONE
+    }
+    
+}
