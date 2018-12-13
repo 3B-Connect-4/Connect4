@@ -219,9 +219,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="3gX-eL-o1k"/>
-                            <constraint firstAttribute="bottom" secondItem="jUF-oZ-kkX" secondAttribute="bottom" constant="20" id="WrM-FS-PXM"/>
-                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kov-C3-QXO"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="3gX-eL-o1k"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" priority="750" constant="-5" id="56m-p8-PtK"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Fva-ne-zjb"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="250" constant="20" id="JwK-7C-bBn"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="fOe-q6-TgE"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="kT0-DG-QIa"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kov-C3-QXO"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="l1p-eG-ZbN"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="tRy-cw-q75"/>
+                            <constraint firstItem="jUF-oZ-kkX" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-5" id="wZi-9Q-6Hn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
