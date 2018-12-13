@@ -10,15 +10,19 @@ import Foundation
 
 class Game {
     
+    let numRows = 6
+    let numCols = 7
+    
     //tokenGrid[0] keeps track of the leftmost column, tokenGrid[1] the next, etc. to tokenGrid[6] on the left
     //tokenGrid[0][0] is the bottommost token in the leftmost column, and tokenGrid[0][5] is the top left token
     var tokenGrid: [[Player.PlayerID]]
     
-    let numRows = 6
-    let numCols = 7
+    //set this as false during transitions between turns
+    var isAcceptingInput: Bool
     
     init() {
         tokenGrid = Array(repeating: Array(repeating: Player.PlayerID.NONE, count: numRows), count: numCols)
+        isAcceptingInput = true
     }
     func reset(){
         for row in 0...5 {

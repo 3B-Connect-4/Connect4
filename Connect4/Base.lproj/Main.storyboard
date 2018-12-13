@@ -35,6 +35,7 @@
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-8c-5bk">
                                                 <rect key="frame" x="0.0" y="140" width="47" height="46.5"/>
+                                                <gestureRecognizers/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Vc-mV-vGe">
                                                 <rect key="frame" x="0.0" y="186.5" width="47" height="47"/>
@@ -43,6 +44,10 @@
                                                 <rect key="frame" x="0.0" y="233.5" width="47" height="46.5"/>
                                             </imageView>
                                         </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="qnd-Cz-2oc" appends="YES" id="tek-3a-Cdr"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1hv-rr-bcI">
                                         <rect key="frame" x="47" y="0.0" width="46.5" height="280"/>
@@ -66,6 +71,10 @@
                                                 <rect key="frame" x="0.0" y="233.5" width="46.5" height="46.5"/>
                                             </imageView>
                                         </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="p6k-Pd-sHN" appends="YES" id="I46-zO-L5G"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="h9b-i1-Mui">
                                         <rect key="frame" x="93.5" y="0.0" width="46.5" height="280"/>
@@ -89,6 +98,10 @@
                                                 <rect key="frame" x="0.0" y="233.5" width="46.5" height="46.5"/>
                                             </imageView>
                                         </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="g3j-KV-U51" appends="YES" id="UJu-Cy-TZ5"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CZ9-1n-cX4">
                                         <rect key="frame" x="140" y="0.0" width="47" height="280"/>
@@ -112,6 +125,10 @@
                                                 <rect key="frame" x="0.0" y="233.5" width="47" height="46.5"/>
                                             </imageView>
                                         </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="dqC-zT-WhA" appends="YES" id="npm-9d-faB"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TC7-1N-lTV">
                                         <rect key="frame" x="187" y="0.0" width="46.5" height="280"/>
@@ -135,6 +152,10 @@
                                                 <rect key="frame" x="0.0" y="233.5" width="46.5" height="46.5"/>
                                             </imageView>
                                         </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="YsK-C2-Vje" appends="YES" id="E87-8d-jnS"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7Nm-U5-FtI">
                                         <rect key="frame" x="233.5" y="0.0" width="46.5" height="280"/>
@@ -158,6 +179,10 @@
                                                 <rect key="frame" x="0.0" y="233.5" width="46.5" height="46.5"/>
                                             </imageView>
                                         </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="q9n-zz-k1C" appends="YES" id="jgg-5u-WL0"/>
+                                        </connections>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2hW-ZY-c2F">
                                         <rect key="frame" x="280" y="0.0" width="47" height="280"/>
@@ -181,6 +206,10 @@
                                                 <rect key="frame" x="0.0" y="233.5" width="47" height="46.5"/>
                                             </imageView>
                                         </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="wwA-zl-J1J" appends="YES" id="s0b-8i-f6b"/>
+                                        </connections>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -198,6 +227,41 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qnd-Cz-2oc">
+                    <connections>
+                        <action selector="columnTapWithRecognizer:" destination="BYZ-38-t0r" id="qBe-EI-igb"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="g3j-KV-U51">
+                    <connections>
+                        <action selector="columnTapWithRecognizer:" destination="BYZ-38-t0r" id="zgc-CV-4X5"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="p6k-Pd-sHN">
+                    <connections>
+                        <action selector="columnTapWithRecognizer:" destination="BYZ-38-t0r" id="rOk-Eu-gIc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="dqC-zT-WhA">
+                    <connections>
+                        <action selector="columnTapWithRecognizer:" destination="BYZ-38-t0r" id="Bwv-eE-EDY"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="YsK-C2-Vje">
+                    <connections>
+                        <action selector="columnTapWithRecognizer:" destination="BYZ-38-t0r" id="8PP-1m-aQ0"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="q9n-zz-k1C">
+                    <connections>
+                        <action selector="columnTapWithRecognizer:" destination="BYZ-38-t0r" id="VNq-IZ-vTc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="wwA-zl-J1J">
+                    <connections>
+                        <action selector="columnTapWithRecognizer:" destination="BYZ-38-t0r" id="6qA-v2-NO3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="133.5832083958021" y="117.59999999999999"/>
         </scene>
