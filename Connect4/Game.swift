@@ -81,4 +81,4 @@ class Game {
         }
         return tokenGrid[col][row] == player
     }
-}
+
