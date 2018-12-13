@@ -14,7 +14,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
     }
-
+    
+    @IBAction func columnTap(recognizer:UITapGestureRecognizer) {
+        if game.isAcceptingInput {
+            //please call the method to place a token right here
+            //you might be able to use the following code segment to get a reference to the stack view and call the method using that
+            
+            //if let view = recognizer.view {
+            //
+            //}
+        }
+    }
 }
 
