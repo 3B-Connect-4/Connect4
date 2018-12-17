@@ -23,4 +23,14 @@ class Player {
         self.score = 0
     }
     
+    static func toChar(_ p: PlayerID) -> Character {
+        switch p {
+        case .RED:
+            return "R"
+        case .YELLOW:
+            return "Y"
+        case .NONE:
+            return "·"
+        }
+    }
 }

@@ -21,14 +21,13 @@ class Game {
     var isAcceptingInput: Bool
     
     init() {
-        tokenGrid = Array(repeating: Array(repeating: Player.PlayerID.NONE, count: numRows), count: numCols)
+        tokenGrid = Array(repeating: Array(repeating: .NONE, count: numRows), count: numCols)
         isAcceptingInput = true
     }
     func reset(){
-        for row in 0...5 {
-            for col in 0...6
-            {
-                tokenGrid[col][row] = Player.PlayerID.NONE
+        for row in 0..<numRows {
+            for col in 0..<numCols {
+                tokenGrid[col][row] = .NONE
             }
         }
     }
@@ -36,7 +35,7 @@ class Game {
     //precondition: the row and col should correspond to an already-existing token on the top of a column
     func causedAWin(col: Int, row: Int) -> Bool {
         let p = tokenGrid[col][row] //the player to evaluate for a win
-        if p == Player.PlayerID.NONE {
+        if p == .NONE {
             return false; //returns false if there is not already a token there
         }
         
@@ -71,7 +70,7 @@ class Game {
         }
         
         //adds up opposite directions, returns true if any sum to 3 or more (the middle token is not counted to determine four-in-a-row)
-        for i in 0...3 {
+        for i in 0..<4 {
             if elimDirs[i] + elimDirs[i+4] >= 3 {
                 return true
             }
@@ -84,5 +83,15 @@ class Game {
             return false
         }
         return tokenGrid[col][row] == player
+    }
+    
+    func printGrid() {
+        for row in stride(from: numRows - 1, through: 0, by: -1) {
+            for col in 0..<numCols {
+                print(Player.toChar(tokenGrid[col][row]), terminator:" ")
+            }
+            print()
+        }
+        print()
     }
 }
