@@ -103,6 +103,11 @@ class Game {
         return tokenGrid[col][row] == player
     }
     
+    func randomMove(playerColorforRan: Player.PlayerID) {
+        let ranCol = Int.random(in: 0..<numCols)
+        dropToken(col: ranCol, playerColor: playerColorforRan)
+    }
+    
     func printGrid() {
         for row in stride(from: numRows - 1, through: 0, by: -1) {
             for col in 0..<numCols {
