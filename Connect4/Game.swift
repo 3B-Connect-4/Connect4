@@ -23,6 +23,7 @@ class Game {
     init() {
         tokenGrid = Array(repeating: Array(repeating: .NONE, count: numRows), count: numCols)
         isAcceptingInput = true
+        
     }
     func reset(){
         for row in 0..<numRows {
@@ -31,16 +32,22 @@ class Game {
             }
         }
     }
-    func dropToken(col: Int, playerColor: Player.PlayerID){
-        for row in 0...5
-        {
-            if tokenGrid[col][row] == Player.PlayerID.NONE
-            {
-                tokenGrid[col][row] = playerColor
-                break
+    
+    //will return the row index of the dropped token if there is a successful drop
+    //otherwise (if invalid column or column is full) return -1
+    func dropToken(col: Int, playerColor: Player.PlayerID) -> Int {
+        if col < 0 || col >= numCols {
+            print("Error: invalid column")
+            return -1
+        } else {
+            for row in 0..<numRows {
+                if tokenGrid[col][row] == Player.PlayerID.NONE {
+                    tokenGrid[col][row] = playerColor
+                    return row
+                }
             }
+            return -1
         }
-        
     }
     
     //precondition: the row and col should correspond to an already-existing token on the top of a column
