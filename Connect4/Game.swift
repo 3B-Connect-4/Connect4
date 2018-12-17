@@ -25,6 +25,17 @@ class Game {
             }
         }
     }
+    func dropToken(col: Int, playerColor: Player.PlayerID){
+        for row in 0...5
+        {
+            if tokenGrid[col][row] == Player.PlayerID.NONE
+            {
+                tokenGrid[col][row] = playerColor
+                break
+            }
+        }
+        
+    }
     
     //precondition: the row and col should correspond to an already-existing token on the top of a column
     /*func causedAWin(col: Int, row: Int) -> Bool {
