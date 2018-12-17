@@ -96,4 +96,8 @@ class Game {
         }
         return tokenGrid[col][row] == player
     }
+    func randomMove(playerColorforRan: Player.PlayerID) {
+        let ranCol = Int.random(in: 0...7)
+        dropToken(col: ranCol, playerColor: playerColorforRan)
+    }
 }
