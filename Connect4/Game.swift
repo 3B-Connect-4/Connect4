@@ -20,10 +20,28 @@ class Game {
     //set this as false during transitions between turns
     var isAcceptingInput: Bool
     
+    //should be the current player
+    var currentPlayer: Player.PlayerID
+    
     init() {
         tokenGrid = Array(repeating: Array(repeating: .NONE, count: numRows), count: numCols)
         isAcceptingInput = true
+        currentPlayer = .RED
         
+        var col: Int
+        while !gridIsFull() {
+            printGrid()
+            col = randomMove(p: .RED)
+            if (causedAWin(col: col, row: highestToken(col: col))) {
+                break
+            }
+            printGrid()
+            col = randomMove(p: .YELLOW)
+            if (causedAWin(col: col, row: highestToken(col: col))) {
+                break
+            }
+        }
+        printGrid()
     }
     func reset(){
         for row in 0..<numRows {
@@ -36,13 +54,19 @@ class Game {
     //will return the row index of the dropped token if there is a successful drop
     //otherwise (if invalid column or column is full) return -1
     func dropToken(col: Int, playerColor: Player.PlayerID) -> Int {
+        print("calling dropToken with column", col)
         if col < 0 || col >= numCols {
-            print("Error: invalid column")
+            print("Error: invalid column", col)
             return -1
         } else {
             for row in 0..<numRows {
                 if tokenGrid[col][row] == Player.PlayerID.NONE {
                     tokenGrid[col][row] = playerColor
+                    if currentPlayer == .RED {
+                        currentPlayer = .YELLOW
+                    } else {
+                        currentPlayer = .RED
+                    }
                     return row
                 }
             }
@@ -61,28 +85,28 @@ class Game {
         //0 moves up (should always be zero...), 1 is up-right, 2 is right, etc. to 7 as up-left
         var elimDirs = Array(repeating: 0, count: 8)
         for i in 1...3 {
-            if elimDirs[0] == i - 1 && isMatchingToken(col: col, row: row + 1, matches: p) {
+            if elimDirs[0] == i - 1 && isMatchingToken(col: col, row: row + i, matches: p) {
                 elimDirs[0] = i
             }
-            if elimDirs[1] == i - 1 && isMatchingToken(col: col + 1, row: row + 1, matches: p) {
+            if elimDirs[1] == i - 1 && isMatchingToken(col: col + i, row: row + i, matches: p) {
                 elimDirs[1] = i
             }
-            if elimDirs[2] == i - 1 && isMatchingToken(col: col + 1, row: row, matches: p) {
+            if elimDirs[2] == i - 1 && isMatchingToken(col: col + i, row: row, matches: p) {
                 elimDirs[2] = i
             }
-            if elimDirs[3] == i - 1 && isMatchingToken(col: col + 1, row: row - 1, matches: p) {
+            if elimDirs[3] == i - 1 && isMatchingToken(col: col + i, row: row - i, matches: p) {
                 elimDirs[3] = i
             }
-            if elimDirs[4] == i - 1 && isMatchingToken(col: col, row: row - 1, matches: p) {
+            if elimDirs[4] == i - 1 && isMatchingToken(col: col, row: row - i, matches: p) {
                 elimDirs[4] = i
             }
-            if elimDirs[5] == i - 1 && isMatchingToken(col: col - 1, row: row - 1, matches: p) {
+            if elimDirs[5] == i - 1 && isMatchingToken(col: col - i, row: row - i, matches: p) {
                 elimDirs[5] = i
             }
-            if elimDirs[6] == i - 1 && isMatchingToken(col: col - 1, row: row, matches: p) {
+            if elimDirs[6] == i - 1 && isMatchingToken(col: col - i, row: row, matches: p) {
                 elimDirs[6] = i
             }
-            if elimDirs[7] == i - 1 && isMatchingToken(col: col - 1, row: row + 1, matches: p) {
+            if elimDirs[7] == i - 1 && isMatchingToken(col: col - i, row: row + i, matches: p) {
                 elimDirs[7] = i
             }
         }
@@ -103,9 +127,35 @@ class Game {
         return tokenGrid[col][row] == player
     }
     
-    func randomMove(playerColorforRan: Player.PlayerID) {
-        let ranCol = Int.random(in: 0..<numCols)
-        dropToken(col: ranCol, playerColor: playerColorforRan)
+    func randomMove(p: Player.PlayerID) -> Int {
+        if !gridIsFull() {
+            var success = false
+            var ranCol = -1
+            while !success {
+                ranCol = Int.random(in: 0..<numCols)
+                success = dropToken(col: ranCol, playerColor: p) != -1
+            }
+            return ranCol
+        }
+        return -1
+    }
+    
+    func gridIsFull() -> Bool {
+        for c in 0..<numCols {
+            if highestToken(col: c) != numRows - 1 {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func highestToken(col: Int) -> Int {
+        for row in 0..<numRows {
+            if tokenGrid[col][row] == Player.PlayerID.NONE {
+                return row - 1
+            }
+        }
+        return numRows - 1
     }
     
     func printGrid() {
